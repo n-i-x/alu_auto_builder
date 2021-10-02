@@ -36,7 +36,7 @@ def pre_flight(input_dir):
     if PLATFORM not in ('linux', 'win32'):
         logging.error(errors.INVALID_OS)
         valid = False
-    valid = common_utils.validate_required_dir(input_dir)
+    valid = common_utils.validate_existing_dir(input_dir)
     return valid
 
 

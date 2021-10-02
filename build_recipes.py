@@ -9,7 +9,6 @@ import logging
 import common_utils
 import configs
 import cmd_help
-import errors
 
 
 def validate_args(input_path, core_path, bios_dir, output_dir):

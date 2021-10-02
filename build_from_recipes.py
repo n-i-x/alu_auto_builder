@@ -10,7 +10,7 @@ import errors
 
 def validate_args(input_dir, output_dir):
     valid = True
-    valid = common_utils.validate_required_dir(input_dir)
+    valid = common_utils.validate_existing_dir(input_dir)
     valid = common_utils.validate_optional_dir(output_dir)
     return valid
 

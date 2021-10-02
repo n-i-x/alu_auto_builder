@@ -184,9 +184,15 @@ def validate_optional_dir(dir_path, option_name=''):
     return True
 
 
-def validate_required_dir(dir_path, option_name=''):
+def validate_existing_dir(dir_path, option_name=''):
     if not dir_path or not os.path.isdir(dir_path):
         logging.error('You must specify a valid path for {0}'.format(option_name))
+        return False
+    return True
+
+
+def validate_parent_dir(dir_path, option_name=''):
+    if dir_path and not validate_existing_dir(os.path.split(dir_path)[0], option_name=option_name):
         return False
     return True
 
