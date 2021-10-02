@@ -28,18 +28,6 @@ def main(input_path, part_path, backup_uce=False):
 
 
 if __name__ == "__main__":
-    # opts_set = operations.operations['replace_uce_save_partition']
-    # parser = argparse.ArgumentParser(prog='replace_save_part')
-    # for opt in opts_set:
-    #     long_opt = '--{0}'.format(opt['name']).replace('_', '')
-    #     short_opt = '-{0}'.format(opt['short'])
-    #     if opt['short'].islower():
-    #         action = 'store'
-    #         default = None
-    #     else:
-    #         action = 'store_true'
-    #         default = False
-    #     parser.add_argument(long_opt, short_opt, dest=opt['name'], default=default, action=action)
     parser = common_utils.get_cmd_line_args(operations.operations['replace_uce_save_partition'])
     args = vars(parser.parse_args())
-    main(args['input_path'], args['part_path'], args['backup_uce'])
+    main(args['input_path'], args['part_path'], backup_uce=args['backup_uce'])

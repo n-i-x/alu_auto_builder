@@ -201,6 +201,7 @@ def get_arg_params(opt_short_name):
     return action, default
 
 
+# TODO Remove the 'optional arguments' message from --help
 def get_cmd_line_args(opt_set):
     parser = argparse.ArgumentParser(prog='replace_save_part')
     for opt in opt_set:
