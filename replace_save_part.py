@@ -1,8 +1,6 @@
 #!/usr/bin/env python3
 
-# import os
 import logging
-# import argparse
 
 import common_utils
 import uce_utils
@@ -12,7 +10,8 @@ import operations
 def validate_args(input_path, part_path):
     valid = True
     for file_path in (input_path, part_path):
-        valid = common_utils.validate_required_path(file_path)
+        if not common_utils.validate_required_path(file_path):
+            valid = False
     return valid
 
 
