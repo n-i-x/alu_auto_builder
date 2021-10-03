@@ -23,9 +23,10 @@ def validate_args(platform, scrape_module, input_dir, output_dir):
     if scrape_module not in configs.SCRAPING_MODULES:
         logging.error(errors.SCRAPE_INVALID_MODULE)
         valid = False
-    valid = common_utils.validate_existing_dir(input_dir)
-    # This script is a special case re validations as Skyscraper creates the output dir
-    valid = common_utils.validate_parent_dir(output_dir)
+    if not common_utils.validate_existing_dir(input_dir):
+        valid = False
+    if not common_utils.validate_parent_dir(output_dir):
+        valid = False
     return valid
 
 
